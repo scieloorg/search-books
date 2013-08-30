@@ -1,4 +1,4 @@
 search-books
 ===============
 
-iAHx Search Interface for SciELO Book
+Configuration files and templates for SciELO Books search.
