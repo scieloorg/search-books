@@ -1,4 +1,4 @@
-iahx-opac-books
+search-books
 ===============
 
 iAHx Search Interface for SciELO Book
