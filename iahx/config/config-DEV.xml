@@ -71,12 +71,15 @@
 				 <sort>
 				 	 <default_for_empty_query>1</default_for_empty_query>
 					 <name>YEAR_DESC</name>
-					 <value>da desc</value>
+					 <value>year desc</value>
 				 </sort>
 				 <sort>
 					 <name>YEAR_ASC</name>
-					 <value>da asc</value>
+					 <value>year asc</value>
 				 </sort>
+                <sort>
+                    <value>publication_date desc</value>
+                </sort>
 			</sort_list>
             <format_list>
             	<format>
@@ -85,4 +88,7 @@
             </format_list>
 		</collection>
 	</search_collection_list>
+	<scielobooks>
+		<base_url>http://books.scielo.org</base_url>
+	</scielobooks>
 </dia_config>
