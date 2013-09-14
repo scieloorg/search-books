@@ -1,0 +1,35 @@
+{% for doc in docs %}
+
+    <div id="{{ doc.id }}" class="record">
+
+        <div class="yourSelectionCheck">
+            <label for="select_{{ doc.id }}" class="hide">{{ texts.SELECT }}</label>
+            <input type="checkbox" class="my_selection" value="{{ doc.id }}"
+            {% if doc.id in bookmark|keys %}checked{% endif %} id="select_{{ doc.id }}">
+        </div>
+
+        <div class="position">{{ loop.index + pag.start }}.</div>
+        <div class="data">
+           <div class="thumb">
+                {% if doc.type == 'book' %}
+                    <img src="{{ config.scielobooks.base_url }}/id/{{ doc.sbid }}/cover/cover_thumbnail.jpeg"/>
+                {% else %}
+                    <img src="{{ config.scielobooks.base_url }}/id/{{ doc.monographsbid }}/cover/cover_thumbnail.jpeg"/>
+                {% endif %}
+            </div>
+
+            <div class="details">
+                {% block data %}
+                    <h3 class="title">
+                        {{ doc.title }}
+                    </h3>
+                    <div class="isbn">
+                        (ISBN:{{ doc.isbn }})
+                    </div>
+                {% endblock %}
+            </div>
+
+        </div>
+
+    </div>
+{% endfor %}

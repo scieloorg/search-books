@@ -1,0 +1,24 @@
+{% extends custom_template("result-doc.html") %}
+
+{% block data %}
+    {{ parent () }}
+    <!-- author -->
+    {% if doc.author is defined %}
+        <div class="author">
+            {{ texts.RESULT.LABEL_AUTHORS }}: {{ doc.author }}
+        </div>
+    {% endif %}
+    <div class="publisher">
+        {{ texts.RESULT.LABEL_PUBLISHER }}: {{ doc.publisher }}
+    </div>
+    <div class="language">
+        {{ texts.RESULT.LABEL_LANGUAGES }}: {{ translate(doc.language, 'LANGUAGES') }}
+    </div>
+    <div>
+        {{ texts.RESULT.LABEL_YEAR }}: {{ doc.year }}
+    </div>
+    <div>
+        {{ texts.RESULT.LABEL_SYNOPSIS }}: {{ doc.synopsis }}
+    </div>
+
+{% endblock %}
