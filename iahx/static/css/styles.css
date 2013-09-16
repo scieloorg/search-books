@@ -291,7 +291,7 @@ DIV.resultSet DIV.record {
 	border-bottom: 2px solid #e5e5e5;
 }
 .record:hover {
-    background: #f9fcfe;
+    background: #f4f6f8;
 }
 DIV.resultSet DIV.record DIV.user-actions A,
 DIV.resultSet DIV.record DIV.user-actions A:visited {
@@ -314,7 +314,6 @@ DIV.record DIV.data  {
 DIV.record DIV.data DIV.thumb{
 	float: left;
 	width: 115px;
-	height: 115px;
 	text-align: center;
 }
 
@@ -334,9 +333,6 @@ DIV.record DIV.data H3 A{
 DIV.record DIV.data A {
 	color: #333;
 	text-decoration: none;
-}
-DIV.record DIV.data A:hover {
-	color: #ccc;
 }
 
 DIV.record DIV.data DIV.details DIV{
