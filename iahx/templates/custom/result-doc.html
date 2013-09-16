@@ -21,11 +21,12 @@
             <div class="details">
                 {% block data %}
                     <h3 class="title">
-                        {{ doc.title }}
+                        {% if doc.type == 'part' %}
+                            <a href="{{ config.scielobooks.base_url }}/id/{{ doc.monographsbid }}/{{ doc.chapterorder }}">{{ doc.title }}</a>
+                        {% else %}
+                            <a href="{{ config.scielobooks.base_url }}/id/{{ doc.sbid }}">{{ doc.title }}</a>
+                        {% endif %}
                     </h3>
-                    <div class="isbn">
-                        (ISBN:{{ doc.isbn }})
-                    </div>
                 {% endblock %}
             </div>
 

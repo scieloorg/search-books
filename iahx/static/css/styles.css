@@ -343,6 +343,9 @@ DIV.record DIV.data DIV.details DIV{
 DIV.details .isbn{
 	font-style: italic;
 }
+DIV.details DIV SPAN{
+    font-weight: bold;
+}
 
 DIV.record DIV.services DIV.related {
 	background: url(../image/common/icon_related.gif) top right no-repeat;
