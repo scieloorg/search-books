@@ -2,11 +2,13 @@
 
 {% block data %}
     {{ parent () }}
-    {% if doc.isbn != '' %}
-        <div class="isbn">
+    <div class="isbn">
+        {% if doc.eisbn != '' %}
+            (ISBN:{{ doc.eisbn }})
+        {% elseif doc.isbn != '' %}
             (ISBN:{{ doc.isbn }})
+        {% endif %}
         </div>
-    {% endif %}
     {% if doc.organizers != '' %}
         <div>
             <span>{{ texts.RESULT.LABEL_ORGANIZERS }}:</span> {{ doc.organizers }}
