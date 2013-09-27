@@ -4,7 +4,7 @@
 	<bvs_url>http://books.scielo.org/</bvs_url>
 	<about_bvs_url>http://books.scielo.org/scielo-livros/</about_bvs_url>
 	<home_url>http://books.scielo.org/</home_url>
-	<search_server>localhost:8081</search_server>
+	<search_server>localhost:8080</search_server>
 	<photocopy_url/>
 	<documents_per_page>20</documents_per_page>
     <max_export_records>2000</max_export_records>
@@ -52,15 +52,16 @@
 			<where_list>
 				<where>
 					<name>BOOK</name>
-					<filter></filter>
+					<filter>type:book</filter>
+                    <default_for_empty_query>1</default_for_empty_query>
 				</where>
 				<where>
 					<name>PART</name>
-					<filter></filter>
+					<filter>type:part</filter>
 				</where>
 				<where>
 					<name>BOOK_PART</name>
-					<filter></filter>
+					<filter/>
 				</where>
 			</where_list>
 			<sort_list>
