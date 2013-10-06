@@ -28,6 +28,7 @@
    <field name="monographsbid" type="string" indexed="false" stored="true"/>
    <field name="is_public" type="boolean" indexed="true" stored="true"/>
    <field name="is_comercial" type="boolean" indexed="true" stored="true"/>
+   <field name="is_comercial_filter" type="first_letter" indexed="true" stored="false"/>
    <field name="publication_date" type="string" indexed="true" stored="true"/>
 
     <!-- catchall field, containing all other searchable text fields (implemented
@@ -47,6 +48,7 @@
 
  <copyField source="*" dest="tw"/>
  <copyField source="sbid" dest="id"/>
+ <copyField source="is_comercial" dest="is_comercial_filter"/>
 
  <types>
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
@@ -106,6 +108,13 @@
     <fieldtype name="dateiso" class="solr.TextField">
         <analyzer type="index">
             <tokenizer class="solr.PatternTokenizerFactory" pattern="(^[0-9]{4})" group="1"/>
+        </analyzer>
+    </fieldtype>
+
+   <fieldtype name="first_letter" class="solr.TextField">
+        <analyzer type="index">
+            <tokenizer class="solr.PatternTokenizerFactory" pattern="(^[a-zA-Z]{1})" group="1"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
         </analyzer>
     </fieldtype>
 
