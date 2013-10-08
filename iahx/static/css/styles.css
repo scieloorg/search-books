@@ -22,8 +22,8 @@ HR{
 	margin: 7px 0 7px 0;
 }
 a{
-	color: #07449f;
-	}
+	color: #990000;
+}
 .container{
 	margin: 0 auto;
     max-width: 1004px;
@@ -288,10 +288,10 @@ DIV.resultSet DIV.infoBar DIV.pagination A {
 	color: #00f;
 }
 DIV.resultSet DIV.record {
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 2px solid #e5e5e5;
 }
 .record:hover {
-    background: #f9fcfe;
+    background: #f4f6f8;
 }
 DIV.resultSet DIV.record DIV.user-actions A,
 DIV.resultSet DIV.record DIV.user-actions A:visited {
@@ -309,10 +309,23 @@ DIV.data DIV.source {
 DIV.record DIV.data  {
 	font-size: 112%;
 	line-height: 20px;
+	width: 90%;
+}
+DIV.record DIV.data DIV.thumb{
+	float: left;
+	width: 115px;
+	text-align: center;
+}
+
+DIV.record DIV.data DIV.details {
+	float: right;
+	margin-top: 0px;
+	width: 79%;
 }
 DIV.record DIV.data H3 {
 	font-size: 130%;
 	font-family: Arial;
+	color: #990000;
 }
 DIV.record DIV.data H3 A{
 	color: #990000;
@@ -321,36 +334,19 @@ DIV.record DIV.data A {
 	color: #333;
 	text-decoration: none;
 }
-DIV.record DIV.data A:hover {
-	color: #344c66;
 
-}
-.tags{font-weight:bold; color:#626465; margin-bottom: 10px;}
-DIV.record DIV.data DIV.source,DIV.record DIV.data DIV.language, DIV.record DIV.data DIV.description, DIV.record DIV.data DIV.tags {
+DIV.record DIV.data DIV.details DIV{
 	color: #121212;
-}
-DIV.record DIV.data DIV.source {
-	color: #6d6d6d;
-}
-DIV.record DIV.data DIV.description SPAN, DIV.record DIV.data DIV.description A, DIV.record DIV.data DIV.tags A.more {
-	color: #121212;
+	display: block;
 }
 
-DIV.record DIV.services DIV {
-	font-size: 90%;
+DIV.details .isbn{
+	font-style: italic;
 }
-DIV.record DIV.services DIV.lilacs_express {
-	background: url(../image/common/icon_lilacs.gif) top right no-repeat;
+DIV.details DIV SPAN{
+    font-weight: bold;
 }
-DIV.record DIV.services DIV.print {
-	background: url(../image/common/icon_print.gif) top right no-repeat;
-}
-DIV.record DIV.services DIV.scad {
-	background: url(../image/common/icon_scad.gif) top right no-repeat;
-}
-DIV.record DIV.services DIV.scielo {
-	background: url(../image/common/icon_scielo.gif) top right no-repeat;
-}
+
 DIV.record DIV.services DIV.related {
 	background: url(../image/common/icon_related.gif) top right no-repeat;
 }

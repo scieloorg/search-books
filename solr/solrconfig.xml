@@ -184,9 +184,10 @@
 
      <lst name="invariants">
         <str name="facet">true</str>
+        <str name="facet.field">is_comercial_filter</str>
         <str name="facet.field">publisher</str>
+        <str name="f.publisher.facet.sort">index</str>
         <str name="facet.field">year</str>
-        <str name="facet.field">is_comercial</str>
         <str name="facet.limit">20</str>
         <str name="facet.mincount">1</str>
      </lst>

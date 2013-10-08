@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+    <channel>{% block channel %}
+        <title>{% block title %}{{ texts.TITLE }} {{ q }}{% endblock %}</title>
+        <link>{% block link %}{{ constant("SEARCH_URL") }}{% endblock %}</link>
+        <description>{% block description %}{{ texts.DESCRIPTION }}{% endblock %}</description>
+
+        {% for doc in docs %}
+
+            {% if doc.type == 'book' %}
+                {% set cover_image = config.scielobooks.base_url ~ '/id/' ~ doc.sbid ~ '/cover/cover_thumbnail.jpeg' %}
+            {% else %}
+                {% set cover_image = config.scielobooks.base_url ~ '/id/' ~ doc.monographsbid ~ '/cover/cover_thumbnail.jpeg' %}
+            {% endif %}
+        
+            {% block item %}
+                <item>
+                    <title><![CDATA[{{ doc.title }}]]></title>
+                    {% if doc.author != '' %}
+                        <author><![CDATA[{{ doc.author }}]]></author>
+                    {% endif %}
+                    <link>{% spaceless %}
+                        {% if doc.type == 'part' %}
+                            {{ config.scielobooks.base_url }}/id/{{ doc.monographsbid }}/{{ doc.chapterorder }}
+                        {% else %}
+                            {{ config.scielobooks.base_url }}/id/{{ doc.sbid }}
+                        {% endif %}
+                    {% endspaceless %}</link>
+                    <description><![CDATA[{{ doc.synopsis }}]]></description>
+                    <enclosure url="{{ cover_image }}" length="-1" type="image/jpeg"/>
+                </item>
+            {% endblock %}
+        {% endfor %}
+    {% endblock %}</channel>
+</rss>

@@ -30,7 +30,7 @@
 		<collection>
 			<name>books</name>
 			<cluster_items_limit>10</cluster_items_limit>
-			<initial_filter></initial_filter>
+            <initial_filter>(is_public:true)</initial_filter>
 			<index_list>
 				<index>
 					<name>ALL</name>
@@ -52,15 +52,16 @@
 			<where_list>
 				<where>
 					<name>BOOK</name>
-					<filter></filter>
+					<filter>type:book</filter>
+                    <default_for_empty_query>1</default_for_empty_query>
 				</where>
 				<where>
 					<name>PART</name>
-					<filter></filter>
+					<filter>type:part</filter>
 				</where>
 				<where>
 					<name>BOOK_PART</name>
-					<filter></filter>
+					<filter/>
 				</where>
 			</where_list>
 			<sort_list>
@@ -71,12 +72,15 @@
 				 <sort>
 				 	 <default_for_empty_query>1</default_for_empty_query>
 					 <name>YEAR_DESC</name>
-					 <value>da desc</value>
+					 <value>year desc</value>
 				 </sort>
 				 <sort>
 					 <name>YEAR_ASC</name>
-					 <value>da asc</value>
+					 <value>year asc</value>
 				 </sort>
+                <sort>
+                    <value>publication_date desc</value>
+                </sort>
 			</sort_list>
             <format_list>
             	<format>
@@ -85,4 +89,7 @@
             </format_list>
 		</collection>
 	</search_collection_list>
+	<scielobooks>
+		<base_url>http://books.scielo.org</base_url>
+	</scielobooks>
 </dia_config>
