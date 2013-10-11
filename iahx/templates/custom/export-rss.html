@@ -20,6 +20,9 @@
                     {% if doc.author != '' %}
                         <author><![CDATA[{{ doc.author }}]]></author>
                     {% endif %}
+                    {% if doc.publication_date != '' %}
+                        <pubDate>{{ date(doc.publication_date)|date('D, d M Y h:i:s O') }}</pubDate>
+                    {% endif %}
                     <link>{% spaceless %}
                         {% if doc.type == 'part' %}
                             {{ config.scielobooks.base_url }}/id/{{ doc.monographsbid }}/{{ doc.chapterorder }}
