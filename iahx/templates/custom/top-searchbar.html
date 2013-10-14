@@ -17,7 +17,7 @@
 
 
                 {% for name, items in filters if filters is defined %}
-                    {% for item in items %}
+                    {% for item in items if name != 'is_comercial_filter' %}
                         <input type="hidden" name="filter[{{ name }}][]" value="{{ item }}">
                     {% endfor %}
                 {% endfor %}
@@ -69,7 +69,21 @@
 
                 <input type="submit" value="{{ texts.SEARCH_SUBMIT }}" class="submit">
                 <div class="actions">
-                    <i class="icon-search"> </i> <a href="{{ constant("SEARCH_URL") }}advanced/?lang={{ lang }}">{{ texts.ADVANCED_SEARCH }}</a>
+                    <i class="icon-search"> </i> <a href="{{ constant("SEARCH_URL") }}advanced/?lang={{ lang }}">{{ texts.ADVANCED_SEARCH }}</a> |
+
+                    <strong>Tipo de publicação: </strong>
+
+                    <input type="radio" name="filter[is_comercial_filter][]" value="" id="radio_is_comercial_all"
+                    {% if filters.is_comercial_filter.0  != 'f' or filters.is_comercial_filter.0  != 't' %} checked="checked"{% endif %} >
+                    <label for="radio_is_comercial_all">{{ translate('all', 'REFINE_is_comercial_filter') }}</label>
+
+                    <input type="radio" name="filter[is_comercial_filter][]" value="f" id="radio_is_comercial_f"
+                    {% if filters.is_comercial_filter.0 == 'f' %}checked="checked"{% endif %} >
+                    <label for="radio_is_comercial_f">{{ translate('f', 'REFINE_is_comercial_filter') }}</label>
+
+                    <input type="radio" name="filter[is_comercial_filter][]" value="t" id="radio_is_comercial_t"
+                    {% if filters.is_comercial_filter.0 == 't' %}checked="checked"{% endif %} >
+                    <label for="radio_is_comercial_t">{{ translate('t', 'REFINE_is_comercial_filter') }}</label>
                 </div>
         </div>
     </form>
