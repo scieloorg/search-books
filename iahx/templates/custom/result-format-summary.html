@@ -8,18 +8,18 @@
         {% elseif doc.isbn != '' %}
             (ISBN:{{ doc.isbn }})
         {% endif %}
-        </div>
+    </div>
     {% if doc.organizers != '' %}
         <div>
             <span>{{ texts.RESULT.LABEL_ORGANIZERS }}:</span> {{ doc.organizers }}
         </div>
     {% endif %}
-    {% if doc.book_title is defined %}
+    {% if doc.book_title != '' %}
         <div>
             <span>{{ texts.RESULT.LABEL_BOOK_PART }}:</span> {{ doc.book_title }}
         </div>
     {% endif %}
-    {% if doc.author is defined %}
+    {% if doc.author != '' %}
         <div class="author">
             <span>{{ texts.RESULT.LABEL_AUTHORS }}:</span> {{ doc.author }}
         </div>
