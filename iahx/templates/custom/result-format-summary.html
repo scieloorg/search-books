@@ -4,7 +4,7 @@
     {{ parent () }}
     <div class="isbn">
         {% if doc.eisbn != '' %}
-            (ISBN:{{ doc.eisbn }})
+            (eISBN:{{ doc.eisbn }})
         {% elseif doc.isbn != '' %}
             (ISBN:{{ doc.isbn }})
         {% endif %}
