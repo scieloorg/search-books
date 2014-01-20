@@ -1,0 +1,84 @@
+{% extends "mobile/index.html" %}
+
+{% block back_button %}
+    <div class="h-div-back">
+        <a class="b-back" href="#" onclick="history.back(); return false;">{{ texts.BACK }}</a>
+    </div>
+{% endblock %}
+
+
+{# hide unused blocks #}
+
+{% block result_navigation %}{% endblock %}
+{% block clusters %}{% endblock %}
+{% block results_topbar %}{% endblock %}
+{% block resultNavigation %}{% endblock %}
+
+{% block result_set %}      
+    <div id="{{ doc.id }}" class="record detail">
+        <div class="data padding7">
+            {% block data %}
+            <!-- title -->
+            <h1 class="c-results-tit">{{ doc.title }}</h1>
+        </div>
+
+        <div class="data padding7">
+            {% if doc.eisbn != '' %}
+                (ISBN:{{ doc.eisbn }})
+            {% elseif doc.isbn != '' %}
+                (ISBN:{{ doc.isbn }})
+            {% endif %}
+        </div>
+        {% if doc.organizers != '' %}
+            <div class="data padding7">
+                <span>{{ texts.RESULT.LABEL_ORGANIZERS }}:</span> {{ doc.organizers }}
+            </div>
+        {% endif %}
+        {% if doc.book_title != '' %}
+            <div class="data padding7">
+                <span>{{ texts.RESULT.LABEL_BOOK_PART }}:</span> {{ doc.book_title }}
+            </div>
+        {% endif %}
+        {% if doc.author != '' %}
+            <div class="data padding7">
+                <span>{{ texts.RESULT.LABEL_AUTHORS }}:</span> {{ doc.author }}
+            </div>
+        {% endif %}
+        <div class="data padding7">
+            <span>{{ texts.RESULT.LABEL_PUBLISHER }}:</span> {{ doc.publisher }}
+        </div>
+        {% if doc.language != '' %}
+            <div class="data padding7">
+                <span>{{ texts.RESULT.LABEL_LANGUAGES }}:</span> {{ translate(doc.language, 'LANGUAGES') }}
+            </div>
+        {% endif %}
+        <div class="data padding7">
+            <span>{{ texts.RESULT.LABEL_YEAR }}:</span> {{ doc.year }}
+        </div>
+        {% if doc.synopsis is defined %}
+            <div class="data padding7">
+                <span>{{ texts.RESULT.LABEL_SYNOPSIS }}:</span> {{ doc.synopsis }}
+            </div>
+        {% endif %}
+
+        <nav class="c-share">
+            {% embed custom_template("mobile/result-doc-actions.html") %}
+                {# hide unused options #}
+                {% block btn_detail %}{% endblock %}
+            {% endembed %}
+        </nav>
+
+
+        {% if maxScore > config.related_min_score %}
+            <div style="display: none">
+              {% include "related-list.html" %}
+            </div>
+        {% endif %}                 
+
+        {% endblock %}            
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}{% endblock %}

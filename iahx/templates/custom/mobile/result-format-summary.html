@@ -1,0 +1,31 @@
+{% extends custom_template("mobile/result-doc.html") %}
+
+{% block data %}
+    {{ parent () }}
+    {% if doc.organizers != '' %}
+        <div>
+            <span>{{ texts.RESULT.LABEL_ORGANIZERS }}:</span> {{ doc.organizers }}
+        </div>
+    {% endif %}
+    {% if doc.book_title != '' %}
+        <div>
+            <span>{{ texts.RESULT.LABEL_BOOK_PART }}:</span> {{ doc.book_title }}
+        </div>
+    {% endif %}
+    {% if doc.author != '' %}
+        <div class="author">
+            <span>{{ texts.RESULT.LABEL_AUTHORS }}:</span> {{ doc.author }}
+        </div>
+    {% endif %}
+    <div class="publisher">
+        <span>{{ texts.RESULT.LABEL_PUBLISHER }}:</span> {{ doc.publisher }}
+    </div>
+    {% if doc.language != '' %}
+        <div class="language">
+            <span>{{ texts.RESULT.LABEL_LANGUAGES }}:</span> {{ translate(doc.language, 'LANGUAGES') }}
+        </div>
+    {% endif %}
+    <div>
+        <span>{{ texts.RESULT.LABEL_YEAR }}:</span> {{ doc.year }}
+    </div>
+{% endblock %}
