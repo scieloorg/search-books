@@ -30,6 +30,7 @@
    <field name="is_comercial" type="boolean" indexed="true" stored="true"/>
    <field name="is_comercial_filter" type="first_letter" indexed="true" stored="false"/>
    <field name="publication_date" type="string" indexed="true" stored="true"/>
+   <field name="files_available" type="string" indexed="true" stored="false" multiValued="true"/>
 
     <!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
