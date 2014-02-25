@@ -78,9 +78,6 @@
 					 <name>YEAR_ASC</name>
 					 <value>year asc</value>
 				 </sort>
-                <sort>
-                    <value>publication_date desc</value>
-                </sort>
 			</sort_list>
             <format_list>
             	<format>
