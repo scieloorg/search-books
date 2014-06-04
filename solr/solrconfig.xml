@@ -190,6 +190,7 @@
         <str name="f.publisher.facet.sort">index</str>
         <str name="facet.field">files_available</str>
         <str name="facet.field">year</str>
+        <str name="facet.field">language</str>
         <str name="facet.limit">11</str>
         <str name="facet.mincount">1</str>
      </lst>
