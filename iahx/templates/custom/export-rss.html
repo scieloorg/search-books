@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<rss version="2.0">
-    <channel>{% block channel %}
+<rss version="2.0" 
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <channel>
+    {% block channel %}
         <title>{% block title %}{{ texts.TITLE }} {{ q }}{% endblock %}</title>
         <link>{% block link %}{{ constant("SEARCH_URL") }}{% endblock %}</link>
         <description>{% block description %}{{ texts.DESCRIPTION }}{% endblock %}</description>
+        <atom:link href="http://{{ constant("SERVERNAME") }}{{ app.request.getRequestURI() }}" rel="self" type="application/rss+xml" />
 
         {% for doc in docs %}
 
@@ -18,7 +23,7 @@
                 <item>
                     <title><![CDATA[{{ doc.title }}]]></title>
                     {% if doc.author != '' %}
-                        <author><![CDATA[{{ doc.author }}]]></author>
+                        <dc:creator><![CDATA[{{ doc.author }}]]></dc:creator>
                     {% endif %}
                     {% if doc.publication_date != '' %}
                         <pubDate>{{ date(doc.publication_date)|date('D, d M Y h:i:s O') }}</pubDate>
@@ -31,7 +36,14 @@
                         {% endif %}
                     {% endspaceless %}</link>
                     <description><![CDATA[{{ doc.synopsis }}]]></description>
-                    <enclosure url="{{ cover_image }}" length="-1" type="image/jpeg"/>
+                    <enclosure url="{{ cover_image }}" length="0" type="image/jpeg"/>
+                    <guid>{% spaceless %}
+                        {% if doc.type == 'part' %}
+                            {{ config.scielobooks.base_url }}/id/{{ doc.monographsbid }}/{{ doc.chapterorder }}
+                        {% else %}
+                            {{ config.scielobooks.base_url }}/id/{{ doc.sbid }}
+                        {% endif %}
+                    {% endspaceless %}</guid>
                 </item>
             {% endblock %}
         {% endfor %}
