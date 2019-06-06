@@ -182,7 +182,6 @@
        <str name="df">tw</str>
        <str name="q.op">AND</str>
        <str name="defType">edismax</str>
-       <str name="mm">3</str>
      </lst>
 
      <lst name="invariants">
